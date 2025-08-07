@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* [نفس التنسيقات السابقة، بدون تعديل] */
     :root {
       --main-color: #d50032;
       --accent-color: #fffaf0;
@@ -144,7 +145,11 @@
       font-weight: 700;
       margin: 25px 0;
     }
-    .menu-buttons { display: flex; flex-direction: column; gap: 16px; }
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
     .menu-buttons button {
       background-color: rgba(255, 255, 255, 0.15);
       color: var(--text-color-light);
@@ -204,56 +209,84 @@
       <button onclick="openCalculator()">🧮 حاسبة الكوينـات</button>
       <button onclick="openContact()">📞 تواصــل معنــا</button>
       <button onclick="openWebsite()">📍 موقــع المحــل</button>
+      <button onclick="logout()">🚪 تسجيل الخروج</button>
     </div>
   </div>
 
-<script>
-  let usersData = [];
+  <script>
+    let usersData = [];
 
-  // تحميل بيانات المستخدمين من ملف users.json
-  fetch('users.json')
-    .then(response => {
-      if (!response.ok) throw new Error('فشل تحميل بيانات المستخدمين');
-      return response.json();
-    })
-    .then(data => { usersData = data; })
-    .catch(error => { console.error('خطأ:', error); });
+    // تحميل بيانات المستخدمين
+    fetch('users.json')
+      .then(response => {
+        if (!response.ok) throw new Error('فشل تحميل بيانات المستخدمين');
+        return response.json();
+      })
+      .then(data => {
+        usersData = data;
+        checkLoginStatus(); // ✅ افحص حالة الدخول بعد تحميل البيانات
+      })
+      .catch(error => {
+        console.error('خطأ:', error);
+      });
 
-  function login() {
-    const code = document.getElementById("codeInput").value.trim();
-    const error = document.getElementById("errorMsg");
+    function login() {
+      const code = document.getElementById("codeInput").value.trim();
+      const error = document.getElementById("errorMsg");
 
-    if (!code) {
-      error.textContent = "يرجى إدخال رمز الدخول.";
-      return;
+      if (!code) {
+        error.textContent = "يرجى إدخال رمز الدخول.";
+        return;
+      }
+
+      const user = usersData.find(u => u.code === code);
+      if (user) {
+        error.textContent = "";
+        localStorage.setItem("loggedInUser", JSON.stringify(user)); // ✅ حفظ المستخدم
+        showUserProfile(user);
+      } else {
+        error.textContent = "رمز الدخول غير صحيح.";
+      }
     }
-    const user = usersData.find(u => u.code === code);
-    if (user) {
-      error.textContent = "";
-      showUserProfile(user);
-    } else {
-      error.textContent = "رمز الدخول غير صحيح.";
+
+    function showUserProfile(user) {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userPhone").textContent = user.phone;
+      document.getElementById("userImage").src = "images/" + user.image;
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("profileBox").style.display = "block";
     }
-  }
 
-  function showUserProfile(user) {
-    document.getElementById("userName").textContent = user.name;
-    document.getElementById("userPhone").textContent = user.phone;
-    document.getElementById("userImage").src = "images/" + user.image;
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("profileBox").style.display = "block";
-  }
+    function checkLoginStatus() {
+      const storedUser = localStorage.getItem("loggedInUser");
+      if (storedUser) {
+        try {
+          const user = JSON.parse(storedUser);
+          showUserProfile(user);
+        } catch (e) {
+          console.error("فشل قراءة بيانات المستخدم:", e);
+          localStorage.removeItem("loggedInUser");
+        }
+      }
+    }
 
-  function openCalculator() {
-    window.open("https://ali99hassan-99.github.io/55/", "_blank");
-  }
-  function openWebsite() {
-    window.location.href = "address.html";
-  }
-  function openContact() {
-    alert("سيتم تطوير هذه الخاصية لاحقًا.");
-  }
-</script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      location.reload(); // إعادة تحميل الصفحة
+    }
+
+    function openCalculator() {
+      window.open("https://ali99hassan-99.github.io/55/", "_blank");
+    }
+
+    function openWebsite() {
+      window.location.href = "address.html";
+    }
+
+    function openContact() {
+      alert("سيتم تطوير هذه الخاصية لاحقًا.");
+    }
+  </script>
 
 </body>
 </html>
