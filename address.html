@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>عنوان المحل - مركز أحلى الأسعار</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #b80000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .store-image {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    .address {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-button,
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #25a244;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      margin: 8px;
+    }
+
+    .map-button:hover,
+    .back-button:hover {
+      background-color: #1c8036;
+    }
+
+    .map-button img,
+    .back-button img {
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>📍 عنوان المحل</header>
+
+  <div class="container">
+    <img src="photo.jpg" alt="واجهة المحل" class="store-image">
+
+    <div class="address">
+      الجبايش/داخل مجمع الموبايلات/قرب كي كارد نافع سعود/مركز أحلى الأسعار
+    </div>
+
+    <a class="map-button" href="https://maps.app.goo.gl/ZxjrnPjQvZKmkyvT6?g_st=atm" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/map-marker.png" alt="خريطة">
+      الموقع على الخريطة
+    </a>
+
+    <button class="back-button" onclick="goBack()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" alt="رجوع">
+      رجوع
+    </button>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>

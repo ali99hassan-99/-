@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>باقات يوز</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff176, #ffeb3b);
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 30px 15px;
+      color: #b71c1c;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2.8em;
+      font-weight: 900;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 3px rgba(183, 28, 28, 0.7);
+      letter-spacing: 1.5px;
+    }
+
+    .card {
+      background: #fff8e1;
+      border: 3px solid #b71c1c;
+      border-radius: 20px;
+      padding: 30px 30px 35px;
+      margin-bottom: 35px;
+      box-shadow: 0 8px 15px rgba(183, 28, 28, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(183, 28, 28, 0.35);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #b71c1c;
+      font-weight: 900;
+      font-size: 1.9em;
+      letter-spacing: 0.8px;
+      margin-bottom: 18px;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(183, 28, 28, 0.4);
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 1.25em;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.4px;
+    }
+
+    .subscription-note {
+      background-color: #dcedc8; /* أخضر فاتح */
+      color: #2e7d32; /* أخضر غامق */
+      font-weight: 900;
+      font-size: 1.15em;
+      text-align: center;
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin: 15px 0 22px 0;
+      box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
+      letter-spacing: 0.5px;
+      user-select: none;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #2e7d32;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 0.4px;
+    }
+
+    .apps {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1.5px solid #b71c1c;
+      padding-top: 18px;
+    }
+
+    .apps strong {
+      width: 100%;
+      font-weight: 900;
+      font-size: 1.25em;
+      margin-bottom: 12px;
+      text-align: center;
+      letter-spacing: 0.6px;
+    }
+
+    .app {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15em;
+      color: #b71c1c;
+      user-select: none;
+    }
+
+    .app-icon {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 1px rgba(183, 28, 28, 0.7));
+      transition: transform 0.25s ease;
+    }
+
+    .app:hover .app-icon {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 4px rgba(183, 28, 28, 1));
+      cursor: default;
+    }
+
+    .whatsapp-button {
+      display: block;
+      max-width: 260px;
+      margin: 35px auto 0 auto;
+      padding: 15px 25px;
+      background: linear-gradient(45deg, #25d366, #128c47);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 1.3em;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.6);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 0.8px;
+      user-select: none;
+    }
+
+    .whatsapp-button:hover {
+      background: linear-gradient(45deg, #128c47, #25d366);
+      box-shadow: 0 8px 25px rgba(18, 140, 71, 0.8);
+    }
+
+    @media (max-width: 600px) {
+      .apps {
+        gap: 14px;
+      }
+
+      .app {
+        font-size: 1em;
+      }
+
+      .app-icon {
+        width: 28px;
+        height: 28px;
+      }
+
+      .whatsapp-button {
+        max-width: 100%;
+        font-size: 1.1em;
+        padding: 14px 20px;
+      }
+
+      .card {
+        padding: 20px 18px 25px;
+      }
+
+      .subscription-note {
+        max-width: 100%;
+        font-size: 1em;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">باقات يوز</div>
+
+    <!-- الباقة الشهرية يوز 15 -->
+    <div class="card">
+      <h2>الباقة الشهرية يوز 15</h2>
+      <div class="info">45,000 كوين</div>
+      <div class="info">100 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 375 دقيقة (6 ساعات و15 دقيقة)</div>
+      <div class="info">أي ما يعادل / 11.25 جيجابايت</div>
+        <div class="info">التجديد الشهري / 15 الف</div>
+
+      <div class="subscription-note">يمكنك الاشتراك ثلاثة أشهر ب 30 الف</div>
+
+      <div class="apps">
+        <strong>تطبيقات مجانية:</strong>
+
+        <div class="app">
+          <img src="icons/WhatsApp.png" alt="WhatsApp" class="app-icon" />
+          WhatsApp
+        </div>
+
+        <div class="app">
+          <img src="icons/Facebook.png" alt="Facebook" class="app-icon" />
+          Facebook
+        </div>
+
+        <div class="app">
+          <img src="icons/Messenger.png" alt="Messenger" class="app-icon" />
+          Messenger
+        </div>
+
+        <div class="app">
+          <img src="icons/Instagram.png" alt="Instagram" class="app-icon" />
+          Instagram
+        </div>
+
+        <div class="app">
+          <img src="icons/Snapchat.png" alt="Snapchat" class="app-icon" />
+          Snapchat
+        </div>
+      </div>
+
+      <div class="note">✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.</div>
+
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20الباقة%20الشهرية%20يوز%2015" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+    <!-- باقة يوز 10 -->
+    <div class="card">
+      <h2>باقة يوز 10 / 20 يوم </h2>
+      <div class="info">25,000 كوين</div>
+      <div class="info">50 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 208 دقيقة (3 ساعات و28 دقيقة)</div>
+      <div class="info">أي ما يعادل / 6.25 جيجابايت</div>
+      <div class="info">التجديد 20 يوم / 10 الف</div>
+      <div class="note">لا تشمل تطبيقات مجانية.</div>
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20باقة%20يوز%2010" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+    <!-- الباقة الأسبوعية يوز 5 -->
+    <div class="card">
+      <h2>الباقة الأسبوعية يوز 5</h2>
+      <div class="info">12,500 كوين</div>
+      <div class="info">25 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 104 دقائق (1 ساعة و44 دقيقة)</div>
+      <div class="info">أي ما يعادل / 3.12 جيجابايت</div>
+      <div class="info">التجديد الاسبوعي / 5 الف</div>
+      <div class="note">لا تشمل تطبيقات مجانية.</div>
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20الباقة%20الأسبوعية%20يوز%205" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+    <!-- الباقة الشهرية يوز 20 -->
+    <div class="card">
+      <h2>الباقة الشهرية يوز 20</h2>
+      <div class="info">72,000 كوين</div>
+      <div class="info">100 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 600 دقيقة (10 ساعات)</div>
+      <div class="info">أي ما يعادل / 18 جيجابايت</div>
+      <div class="info">التجديد الشهري / 20 الف</div>
+
+      <div class="subscription-note">يمكنك الاشتراك ثلاثة أشهر ب 40 الف</div>
+
+      <div class="apps">
+        <strong>تطبيقات مجانية:</strong>
+
+        <div class="app">
+          <img src="icons/WhatsApp.png" alt="WhatsApp" class="app-icon" />
+          WhatsApp
+        </div>
+
+        <div class="app">
+          <img src="icons/Facebook.png" alt="Facebook" class="app-icon" />
+          Facebook
+        </div>
+
+        <div class="app">
+          <img src="icons/Messenger.png" alt="Messenger" class="app-icon" />
+          Messenger
+        </div>
+
+        <div class="app">
+          <img src="icons/Instagram.png" alt="Instagram" class="app-icon" />
+          Instagram
+        </div>
+
+        <div class="app">
+          <img src="icons/Snapchat.png" alt="Snapchat" class="app-icon" />
+          Snapchat
+        </div>
+
+        <div class="app">
+          <img src="icons/Viber.png" alt="Viber" class="app-icon" />
+          Viber
+        </div>
+      </div>
+
+      <div class="note">✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.</div>
+
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20الباقة%20الشهرية%20يوز%2020" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+    <!-- الباقة الشهرية يوز 25 -->
+    <div class="card">
+      <h2>الباقة الشهرية يوز 25</h2>
+      <div class="info">108,000 كوين</div>
+      <div class="info">200 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 900 دقيقة (15 ساعة)</div>
+      <div class="info">أي ما يعادل / 27 جيجابايت</div>
+      <div class="info">التجديد الشهري / 25 الف</div>
+
+      <div class="subscription-note">يمكنك الاشتراك ثلاثة أشهر ب 50 الف</div>
+
+      <div class="apps">
+        <strong>تطبيقات مجانية:</strong>
+
+        <div class="app">
+          <img src="icons/WhatsApp.png" alt="WhatsApp" class="app-icon" />
+          WhatsApp
+        </div>
+
+        <div class="app">
+          <img src="icons/Facebook.png" alt="Facebook" class="app-icon" />
+          Facebook
+        </div>
+
+        <div class="app">
+          <img src="icons/Messenger.png" alt="Messenger" class="app-icon" />
+          Messenger
+        </div>
+
+        <div class="app">
+          <img src="icons/Instagram.png" alt="Instagram" class="app-icon" />
+          Instagram
+        </div>
+
+        <div class="app">
+          <img src="icons/TikTok.png" alt="TikTok" class="app-icon" />
+          TikTok
+        </div>
+
+        <div class="app">
+          <img src="icons/Snapchat.png" alt="Snapchat" class="app-icon" />
+          Snapchat
+        </div>
+
+        <div class="app">
+          <img src="icons/Viber.png" alt="Viber" class="app-icon" />
+          Viber
+        </div>
+      </div>
+
+      <div class="note">✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.</div>
+
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20الباقة%20الشهرية%20يوز%2025" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+    <!-- الباقة الشهرية يوز 30 -->
+    <div class="card">
+      <h2>الباقة الشهرية يوز 30</h2>
+      <div class="info">144,000 كوين</div>
+      <div class="info">200 رسالة مجانية</div>
+      <div class="info">أي ما يعادل / 1,200 دقيقة (20 ساعة)</div>
+      <div class="info">أي ما يعادل / 36 جيجابايت</div>
+      <div class="info">التجديد الشهري / 30 الف</div>
+
+      <div class="subscription-note">يمكنك الاشتراك ثلاثة أشهر ب 60 الف </div>
+
+      <div class="apps">
+        <strong>تطبيقات مجانية:</strong>
+
+        <div class="app">
+          <img src="icons/WhatsApp.png" alt="WhatsApp" class="app-icon" />
+          WhatsApp
+        </div>
+
+        <div class="app">
+          <img src="icons/Facebook.png" alt="Facebook" class="app-icon" />
+          Facebook
+        </div>
+
+        <div class="app">
+          <img src="icons/Messenger.png" alt="Messenger" class="app-icon" />
+          Messenger
+        </div>
+
+        <div class="app">
+          <img src="icons/Instagram.png" alt="Instagram" class="app-icon" />
+          Instagram
+        </div>
+
+        <div class="app">
+          <img src="icons/TikTok.png" alt="TikTok" class="app-icon" />
+          TikTok
+        </div>
+
+        <div class="app">
+          <img src="icons/Snapchat.png" alt="Snapchat" class="app-icon" />
+          Snapchat
+        </div>
+
+        <div class="app">
+          <img src="icons/YouTube.png" alt="YouTube" class="app-icon" />
+          YouTube
+        </div>
+
+        <div class="app">
+          <img src="icons/Viber.png" alt="Viber" class="app-icon" />
+          Viber
+        </div>
+      </div>
+
+      <div class="note">✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.</div>
+
+      <a class="whatsapp-button" href="https://wa.me/9647712504488?text=أريد%20الاستفسار%20عن%20الباقة%20الشهرية%20يوز%2030" target="_blank" rel="noopener noreferrer">
+        استفسر عبر واتساب
+      </a>
+    </div>
+
+  </div>
+</body>
+
+</html>
